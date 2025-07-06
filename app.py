@@ -11,11 +11,12 @@ from email.mime.multipart import MIMEMultipart
 app = Flask(__name__)
 CORS(app)
 
+# Clave AES (32 bytes para AES-256)
 SECRET_KEY = os.environ.get("AES_SECRET_KEY", "ClaveMuySecreta12345678901234567890")[:32].encode()
 
-EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS")       # tu correo de envío
-EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")     # contraseña de aplicación
-EMAIL_RECEIVER = os.environ.get("EMAIL_RECEIVER")     # tu correo receptor
+EMAIL_ADDRESS = os.environ.get("EMAIL_ADDRESS")
+EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_RECEIVER = os.environ.get("EMAIL_RECEIVER")
 
 def pad(data):
     pad_len = 16 - (len(data) % 16)
@@ -33,10 +34,8 @@ def send_email(subject, body, to_email):
     msg['From'] = EMAIL_ADDRESS
     msg['To'] = to_email
     msg['Subject'] = subject
-
     msg.attach(MIMEText(body, 'plain'))
 
-    # Servidor SMTP de Gmail
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
         smtp.send_message(msg)
@@ -53,10 +52,8 @@ def contact():
 
     combined_message = f"Nombre: {name}\nContacto: {contact_info}\nMensaje: {message}"
 
-    # Cifrar
     encrypted_message = encrypt_message(combined_message, SECRET_KEY)
 
-    # Enviar email
     send_email("Nuevo mensaje cifrado de Cypher", encrypted_message, EMAIL_RECEIVER)
 
     return jsonify({"message": "Mensaje recibido y enviado por email correctamente."}), 200

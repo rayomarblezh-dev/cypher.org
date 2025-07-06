@@ -89,36 +89,37 @@
         });
 
 
-        document.getElementById("contact-form").addEventListener("submit", async function (e) {
+        document.getElementById("contact-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const contact = document.getElementById("contact").value;
-    const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value.trim();
+    const contact = document.getElementById("contact").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    const payload = {
-        name,
-        contact,
-        message
-    };
+    if (!name || !contact || !message) {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
+
+    const payload = { name, contact, message };
 
     try {
-        const response = await fetch("https://tu-backend.railway.app/contact", {
+        const response = await fetch("https://tu-dominio-o-railway.app/contact", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(payload)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
         });
 
         const data = await response.json();
+
         if (response.ok) {
             alert(data.message);
             document.getElementById("contact-form").reset();
         } else {
-            alert(data.error || "Error al enviar el mensaje.");
+            alert("Error: " + data.error);
         }
     } catch (error) {
-        alert("Error de red o servidor. Intenta más tarde.");
+        console.error("Error al enviar:", error);
+        alert("Error al enviar el mensaje. Intenta más tarde.");
     }
 });

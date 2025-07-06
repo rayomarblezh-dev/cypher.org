@@ -287,65 +287,31 @@
             </div>
 
             <form id="contact-form" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium mb-2 text-gray-300">Nombre</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        class="w-full px-4 py-3 rounded-md bg-[#1F2937] border border-gray-600 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4B5563]"
-                        placeholder="Tu nombre"
-                        aria-label="Nombre"
-                    />
-                </div>
-                <div>
-                    <label for="contact" class="block text-sm font-medium mb-2 text-gray-300">Contacto</label>
-                    <input
-                        type="text"
-                        id="contact"
-                        name="email"
-                        required
-                        class="w-full px-4 py-3 rounded-md bg-[#1F2937] border border-gray-600 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4B5563]"
-                        placeholder="Email"
-                        aria-label="Método de contacto"
-                    />
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium mb-2 text-gray-300">Mensaje</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        required
-                        class="w-full px-4 py-3 rounded-md bg-[#1F2937] border border-gray-600 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#4B5563]"
-                        placeholder="Describe tu proyecto o consulta aquí..."
-                        aria-label="Mensaje"
-                    ></textarea>
-                </div>
-                <div class="flex items-start">
-                    <input
-                        id="encryption"
-                        name="encryption"
-                        type="checkbox"
-                        checked
-                        class="h-4 w-4 rounded text-[#4B5563] bg-[#1F2937]"
-                    />
-                    <label for="encryption" class="ml-2 text-sm text-gray-300"> 
-                        Entiendo que este mensaje será cifrado con AES-256 antes del envío.
-                    </label>
-                </div>
-                <div>
-                    <button
-                        type="submit"
-                        class="w-full bg-[#4B5563] text-white py-3 px-6 rounded-md font-medium hover:bg-[#374151] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#4B5563]"
-                    >
-                        Enviar
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
+  <div>
+    <label for="name" class="block text-sm font-medium mb-2 text-gray-300">Nombre</label>
+    <input type="text" id="name" name="name" required ... />
+  </div>
+  <div>
+    <label for="contact" class="block text-sm font-medium mb-2 text-gray-300">Contacto</label>
+    <input type="text" id="contact" name="contact" required ... />
+  </div>
+  <div>
+    <label for="message" class="block text-sm font-medium mb-2 text-gray-300">Mensaje</label>
+    <textarea id="message" name="message" rows="5" required ...></textarea>
+  </div>
+  <div class="flex items-start">
+    <input id="encryption" name="encryption" type="checkbox" checked class="h-4 w-4 rounded text-[#4B5563] bg-[#1F2937]" />
+    <label for="encryption" class="ml-2 text-sm text-gray-300">
+      Entiendo que este mensaje será cifrado con AES-256 antes del envío.
+    </label>
+  </div>
+  <div>
+    <button type="submit" class="w-full bg-[#4B5563] text-white py-3 px-6 rounded-md font-medium hover:bg-[#374151] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#4B5563]">
+      Enviar
+    </button>
+  </div>
+</form>
+</section>
 
     <!-- Footer -->
     <footer class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-gray-800">

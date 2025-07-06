@@ -103,7 +103,7 @@
     };
 
     try {
-        const response = await fetch("https://cypherorg-production.up.railway.app/contact", {
+        const response = await fetch("https://tu-backend.railway.app/contact", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

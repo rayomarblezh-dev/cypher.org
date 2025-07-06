@@ -89,37 +89,4 @@
         });
 
 
-        document.getElementById("contact-form").addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const contact = document.getElementById("contact").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !contact || !message) {
-        alert("Por favor, completa todos los campos.");
-        return;
-    }
-
-    const payload = { name, contact, message };
-
-    try {
-        const response = await fetch("https://tu-dominio-o-railway.app/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert(data.message);
-            document.getElementById("contact-form").reset();
-        } else {
-            alert("Error: " + data.error);
-        }
-    } catch (error) {
-        console.error("Error al enviar:", error);
-        alert("Error al enviar el mensaje. Intenta más tarde.");
-    }
-});
+        

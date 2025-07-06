@@ -1,4 +1,0 @@
-Flask
-gunicorn
-pycryptodome
-flask-cors

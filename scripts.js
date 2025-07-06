@@ -87,3 +87,38 @@
         document.querySelectorAll('section, .service-card').forEach(element => {
             observer.observe(element);
         });
+
+
+        document.getElementById("contact-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const contact = document.getElementById("contact").value;
+    const message = document.getElementById("message").value;
+
+    const payload = {
+        name,
+        contact,
+        message
+    };
+
+    try {
+        const response = await fetch("https://cypherorg-production.up.railway.app/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            alert(data.message);
+            document.getElementById("contact-form").reset();
+        } else {
+            alert(data.error || "Error al enviar el mensaje.");
+        }
+    } catch (error) {
+        alert("Error de red o servidor. Intenta más tarde.");
+    }
+});

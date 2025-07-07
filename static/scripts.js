@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
   const hamburgerSpans = mobileMenuButton?.querySelectorAll('.hamburger-icon span');
 
-  // Verificar que los elementos existen para evitar errores
   if (mobileMenuButton && mobileMenu && mobileMenuBackdrop && hamburgerSpans.length) {
     mobileMenuButton.addEventListener('click', () => {
       const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
@@ -13,30 +12,36 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.toggle('hidden');
       mobileMenuBackdrop.classList.toggle('hidden');
 
-      // Animar ícono hamburguesa
-      hamburgerSpans.forEach((span, index) => {
-        span.classList.toggle('active', !isExpanded);
-      });
+      hamburgerSpans.forEach(span => span.classList.toggle('active', !isExpanded));
     });
 
     mobileMenuBackdrop.addEventListener('click', () => {
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.add('hidden');
-      mobileMenuBackdrop.classList.add('hidden');
-
-      hamburgerSpans.forEach(span => span.classList.remove('active'));
+      closeMenu();
     });
 
     // Cerrar menú al hacer clic en un enlace
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenuButton.setAttribute('aria-expanded', 'false');
-        mobileMenu.classList.add('hidden');
-        mobileMenuBackdrop.classList.add('hidden');
+      link.addEventListener('click', (e) => {
+        // Desplazamiento suave
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
 
-        hamburgerSpans.forEach(span => span.classList.remove('active'));
+        closeMenu();
       });
     });
+
+    function closeMenu() {
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+      mobileMenuBackdrop.classList.add('hidden');
+      hamburgerSpans.forEach(span => span.classList.remove('active'));
+    }
   } else {
     console.warn('Elementos del menú hamburguesa no encontrados');
   }
@@ -49,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Deshabilitar botón de enviar para evitar envíos múltiples
       const submitButton = contactForm.querySelector('button[type="submit"]');
       submitButton.disabled = true;
 
@@ -72,7 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
           formMessage.textContent = result.error;
         }
 
-        // Ocultar mensaje después de 5 segundos
         setTimeout(() => {
           formMessage.classList.add('hidden');
           formMessage.textContent = '';

@@ -1,5 +1,0 @@
-{
-  "startCommand": "serve public",
-  "installCommand": "npm install -g serve",
-  "root": "."
-}

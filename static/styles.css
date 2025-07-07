@@ -1,0 +1,226 @@
+/* styles.css */
+@font-face {
+    font-family: "TT Autonomous Mono Trial Variable";
+    src: url(/fonts/TT\ Autonomous\ Mono\ Trial\ Variable\ Roman.ttf);
+}
+/* General reset and font setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  background-image:
+    linear-gradient(#e5e5e5 1px, transparent 1px),
+    linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-attachment: fixed;
+}
+
+/* Logo font */
+.logo-font {
+  font-family:  'TT Autonomous Mono Trial Variable','Space Mono', monospace;
+}
+
+/* Navigation */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: #333333;
+}
+
+nav a:hover {
+  color: #000000;
+}
+
+.hamburger-icon span {
+  background-color: #000000;
+}
+
+.hamburger-icon span:first-child.active {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-icon span:nth-child(2).active {
+  opacity: 0;
+}
+
+.hamburger-icon span:last-child.active {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile menu */
+#mobile-menu {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#mobile-menu a {
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#mobile-menu a:hover {
+  color: #000000;
+  background-color: #f5f5f5;
+}
+
+#mobile-menu-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+.btn-bordered {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #000000;
+  color: #000000;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-bordered:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Typewriter effect */
+.typewriter {
+  font-family: 'Space Mono', monospace;
+  color: #333333;
+}
+
+/* About section */
+#about .w-24 {
+  background-color: #e5e5e5;
+}
+
+#about .border-gray-300 {
+  border-color: #000;
+}
+
+#about .bg-white {
+  background-color: #ffffff;
+}
+
+#about .text-black {
+  color: #000000;
+}
+
+#about .text-gray-500 {
+  color: #666666;
+}
+
+/* Services section */
+#services .w-24 {
+  background-color: #e5e5e5;
+}
+
+.service-card {
+  background-color: #ffffff;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.02);
+}
+
+.service-card .bg-gray-100 {
+  background-color: #f5f5f5;
+}
+
+.service-card .text-gray-600 {
+  color: #333333;
+}
+
+.service-card .text-black {
+  color: #000000;
+}
+
+/* Applications section */
+#applications .w-24 {
+  background-color: #e5e5e5;
+}
+
+#applications .bg-white {
+  background-color: #ffffff;
+}
+
+#applications .border-gray-300 {
+  border-color: #000;
+}
+
+#applications .text-gray-400 {
+  color: #999999;
+}
+
+#applications .text-gray-600 {
+  color: #333333;
+}
+
+#applications .text-black {
+  color: #000000;
+}
+
+/* Contact section */
+#contact .w-24 {
+  background-color: #e5e5e5;
+}
+
+#contact .text-gray-600 {
+  color: #333333;
+}
+
+#contact input,
+#contact textarea {
+  background-color: #f5f5f5;
+  border: 1px solid #e5e5e5;
+  color: #000000;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+#contact button {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+#contact button:hover {
+  background-color: #333333;
+}
+
+/* Footer */
+
+footer .text-gray-600 {
+  color: #333333;
+}
+
+footer .text-gray-500 {
+  color: #666666;
+}
+
+footer .text-black {
+  color: #000000;
+}
+
+footer a:hover {
+  color: #000000;
+}

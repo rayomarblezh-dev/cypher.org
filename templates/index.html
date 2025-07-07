@@ -100,17 +100,27 @@
             </div>
         </div>
 
-        <!-- Logo centrado -->
-        <div class="mt-12 mx-auto max-w-4xl">
-            <div class="flex items-center justify-center">
-                <img 
-                    src="/static/images/isotipo.png" 
-                    alt="Cypher Logo" 
-                    class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain"
-                />
-            </div>  
-        </div>
-    </section>
+        <style>
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.pulsing {
+    animation: pulse 2s ease-in-out infinite;
+}
+</style>
+
+<div class="mt-12 mx-auto max-w-4xl">
+    <div class="flex items-center justify-center">
+        <img 
+            src="/static/images/isotipo.png" 
+            alt="Cypher Logo" 
+            class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain pulsing"
+        />
+    </div>  
+</div>
+
 
     <!-- About Section -->
     <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">

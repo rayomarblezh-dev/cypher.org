@@ -89,4 +89,38 @@
         });
 
 
-        
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const encryption = document.getElementById('encryption').checked;
+
+      if (message.length < 10) {
+        alert('El mensaje debe tener al menos una oración (mínimo 10 caracteres).');
+        return;
+      }
+
+      const formData = {
+        name: name,
+        email: email,
+        message: message,
+        encryption: encryption
+      };
+
+      const jsonData = JSON.stringify(formData, null, 2);
+
+      // Descargar como archivo JSON local (puedes quitar esto si quieres enviar al servidor)
+      const blob = new Blob([jsonData], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'contacto.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      alert('Formulario exportado como JSON. ✅');
+    });

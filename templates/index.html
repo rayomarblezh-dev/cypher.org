@@ -85,22 +85,61 @@
     <div id="mobile-menu-backdrop" class="hidden md:hidden fixed inset-0 bg-black bg-opacity-50 z-30"></div>
 
     <!-- Hero Section -->
-    <section class="mt-16 pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="text-center">
+<section class="mt-16 pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center">
+        <!-- Texto a la izquierda -->
+        <div class="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0 opacity-0 transform -translate-x-10 animate-fade-slide-left">
             <h1 class="logo-font text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight text-black">
                 <span>Cyp</span><span class="italic">her</span>
             </h1>
             <h2 class="typewriter text-lg sm:text-xl md:text-2xl font-mono mb-8 text-gray-600">Innovamos a través del código</h2>
-            <p class="max-w-2xl mx-auto text-gray-600 mb-10 text-base sm:text-lg leading-relaxed">
+            <p class="max-w-md text-gray-600 mb-10 text-base sm:text-lg leading-relaxed mx-auto md:mx-0">
                 Somos un equipo de desarrolladores apasionados que crean soluciones de software modernas, escalables y personalizadas para llevar tu negocio al siguiente nivel.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                 <a href="#contact" class="btn-bordered">Contáctanos</a>
                 <a href="#services" class="btn-bordered">Nuestros servicios</a>
             </div>
         </div>
 
-        <style>
+        <!-- Imagen a la derecha -->
+        <div class="w-full md:w-1/2 flex justify-center md:justify-end opacity-0 transform translate-x-10 animate-fade-slide-right">
+            <img 
+                src="/static/images/isotipo.png" 
+                alt="Cypher Logo" 
+                class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain pulsing"
+            />
+        </div>
+    </div>
+</section>
+
+<style>
+@keyframes fadeSlideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeSlideRight {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.animate-fade-slide-left {
+    animation: fadeSlideLeft 1.2s ease forwards;
+}
+.animate-fade-slide-right {
+    animation: fadeSlideRight 1.2s ease forwards;
+}
 @keyframes pulse {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
@@ -111,15 +150,6 @@
 }
 </style>
 
-<div class="mt-12 mx-auto max-w-4xl">
-    <div class="flex items-center justify-center">
-        <img 
-            src="/static/images/isotipo.png" 
-            alt="Cypher Logo" 
-            class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain pulsing"
-        />
-    </div>  
-</div>
 
 
     <!-- About Section -->
@@ -337,7 +367,7 @@
             </div>
             <div class="text-center md:text-right">
                 <p class="text-xs text-gray-500">
-                    © 2025 Cypher. Transformando ideas en código.
+                    © 2025 Cypher. Todos los derechos reservados.
                 </p>
             </div>
         </div>

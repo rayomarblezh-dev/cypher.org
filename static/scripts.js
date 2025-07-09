@@ -35,23 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-
-        // Cerrar menú con la tecla Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarMenuButton.getAttribute('aria-expanded') === 'true') {
-                closeMenu();
-            }
-        });
-
-        function closeMenu() {
-            sidebarMenuButton.setAttribute('aria-expanded', 'false');
-            sidebarMenu.classList.remove('active');
-            sidebarMenuBackdrop.classList.remove('active');
-            hamburgerSpans.forEach(span => span.classList.remove('active'));
-        }
-    } else {
-        console.warn('No se encontraron uno o más elementos del menú lateral: botón, menú, backdrop o spans del ícono hamburguesa');
-    }
+      }
 
   // Manejo del formulario de contacto
   const contactForm = document.getElementById('contact-form');

@@ -39,7 +39,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
 </head>
-<body class="min-h-screen min-h-screen overflow-x-hidden">
+<body class="min-h-screen overflow-x-hidden">
 <!-- Navigation -->
     <nav class="fixed w-full z-50 top-0 bg-white border-b border-gray-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,22 +75,21 @@
 
     
     <!-- Sidebar menu -->
-    <nav id="sidebar-menu" class="hidden fixed top-0 left-0 w-64 h-full bg-white z-40 transform -translate-x-full opacity-0 transition-all duration-300 ease-in-out">
+    <nav id="sidebar-menu" class="hidden fixed top-0 left-0 w-64 h-full bg-white border-r border-black z-40 transform -translate-x-full opacity-0 transition-all duration-300 ease-in-out shadow-lg">
         <div class="pt-16 pb-3 space-y-1">
-            <a href="#about" class="block text-gray-600 hover:text-black px-4 py-2 font-semibold">Sobre nosotros</a>
-            <a href="#services" class="block text-gray-600 hover:text-black px-4 py-2 font-semibold">Servicios</a>
-            <a href="#applications" class="block text-gray-600 hover:text-black px-4 py-2 font-semibold">Soluciones</a>
-            <a href="#contact" class="block text-gray-600 hover:text-black px-4 py-2 font-semibold">Contacto</a>
+            <a href="#about" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none border-b border-black">Sobre nosotros</a>
+            <a href="#services" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none border-b border-black">Servicios</a>
+            <a href="#applications" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none border-b border-black">Soluciones</a>
+            <a href="#contact" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none">Contacto</a>
         </div>
     </nav>
     <div id="sidebar-menu-backdrop" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30 transition-opacity duration-300"></div>
     
-    
     <!-- Hero Section -->
-<section class="mt-16 pt-20 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="flex flex-col md:flex-row items-center">
+<section class="mt-16 pt-20 pb-10 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto overflow-x-hidden relative">
+    <div class="flex flex-col md:flex-row items-center w-full gap-8 md:gap-0 flex-wrap">
         <!-- Texto a la izquierda -->
-        <div class="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0 opacity-0 transform -translate-x-10 animate-fade-slide-left">
+        <div class="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 opacity-0 will-change-transform animate-fade-slide-left px-2 sm:px-0">
             <h1 class="logo-font text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight text-black">
                 <span>Cyp</span><span class="italic">her</span>
             </h1>
@@ -105,11 +104,12 @@
         </div>
 
         <!-- Imagen a la derecha -->
-        <div class="w-full md:w-1/2 flex justify-center md:justify-end opacity-0 transform translate-x-10 animate-fade-slide-right">
+        <div class="w-full md:w-1/2 flex justify-center md:justify-end opacity-0 will-change-transform animate-fade-slide-right px-2 sm:px-0 overflow-hidden">
             <img 
                 src="/static/images/isotipo.png" 
                 alt="Cypher Logo" 
-                class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 object-contain pulsing"
+                class="max-w-full w-auto h-auto object-contain pulsing"
+                style="display: block; min-width: 100px; max-width: 100%; height: auto;"
             />
         </div>
     </div>
@@ -120,20 +120,24 @@
     0% {
         opacity: 0;
         transform: translateX(-40px);
+        overflow-x: hidden;
     }
     100% {
         opacity: 1;
         transform: translateX(0);
+        overflow-x: hidden;
     }
 }
 @keyframes fadeSlideRight {
     0% {
         opacity: 0;
         transform: translateX(40px);
+        overflow-x: hidden;
     }
     100% {
         opacity: 1;
         transform: translateX(0);
+        overflow-x: hidden;
     }
 }
 .animate-fade-slide-left {
@@ -155,18 +159,18 @@
 
 
     <!-- About Section -->
-    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="about" class="py-16 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto w-full overflow-x-hidden">
         <div class="text-center mb-14">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-black">Sobre nosotros</h2>
             <div class="w-24 h-1 bg-gray-300 mx-auto mb-6 rounded-full"></div>
         </div>
         
-        <div class="max-w-4xl mx-auto text-center">
+        <div class="max-w-4xl mx-auto text-center w-full">
             <p class="text-gray-600 mb-8 text-base sm:text-lg leading-relaxed">
                 En Cypher, somos un equipo de desarrolladores, diseñadores y estrategas tecnológicos dedicados a transformar ideas en soluciones digitales. Nos especializamos en crear software de alta calidad que impulsa el crecimiento de nuestros clientes.
             </p>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 w-full">
                 <div class="p-5 border border-gray-300 rounded-xl bg-white hover:scale-105 transition-transform duration-300">
                     <div class="text-3xl sm:text-4xl font-bold text-black mb-1">+3</div>
                     <div class="text-[10px] sm:text-xs uppercase tracking-wider text-gray-500">Años de experiencia</div>
@@ -188,7 +192,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="services" class="py-16 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto w-full overflow-x-hidden">
         <div class="text-center mb-14">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-black">Nuestros servicios</h2>
             <div class="w-24 h-1 bg-gray-300 mx-auto mb-6 rounded-full"></div>
@@ -197,7 +201,7 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
             <div class="service-card">
                 <h3 class="text-lg sm:text-xl font-semibold mb-3 text-black">Desarrollo web</h3>
                 <p class="text-gray-600 text-base mb-4 leading-relaxed">Creamos sitios web modernos, responsivos y optimizados para SEO, desde portales corporativos hasta plataformas de comercio electrónico.</p>
@@ -256,7 +260,7 @@
     </section>
 
     <!-- Applications Section -->
-    <section id="applications" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="applications" class="py-16 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto w-full overflow-x-hidden">
         <div class="text-center mb-14">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-black">Soluciones</h2>
             <div class="w-24 h-1 bg-gray-300 mx-auto mb-6 rounded-full"></div>
@@ -265,7 +269,7 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
             <div class="bg-white border border-gray-300 rounded-xl p-6 hover:scale-[1.02] transition-transform duration-300">
                 <div class="flex items-start">
                     <div class="text-2xl mr-4 text-gray-400 font-bold">01</div>
@@ -314,7 +318,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="contact" class="py-16 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto w-full overflow-x-hidden">
         <div class="max-w-3xl mx-auto">
             <div class="text-center mb-14">
                 <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-4 tracking-tight text-black">Contacto</h2>
@@ -324,7 +328,7 @@
                 </p>
             </div>
 
-            <form id="contact-form" action="/submit-contact" method="POST" class="space-y-6">
+            <form id="contact-form" action="/submit-contact" method="POST" class="space-y-6 w-full">
                 <div id="form-message" class="hidden text-center p-4 rounded-md"></div>
                 <div>
                     <label for="name" class="block text-sm font-medium mb-2 text-gray-600">Nombre</label>
@@ -348,8 +352,8 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer class="py-10 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto w-full overflow-x-hidden">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6 w-full flex-wrap">
             <div class="flex items-center">
                 <img src="/static/images/isotipo.png" alt="Cypher logo" class="h-20 w-20 object-contain">
                 <div>

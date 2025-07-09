@@ -1,50 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Manejo del menú hamburguesa
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
-  const hamburgerSpans = mobileMenuButton?.querySelectorAll('.hamburger-icon span');
-
-  if (mobileMenuButton && mobileMenu && mobileMenuBackdrop && hamburgerSpans.length) {
-    mobileMenuButton.addEventListener('click', () => {
-      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-      mobileMenu.classList.toggle('hidden');
-      mobileMenuBackdrop.classList.toggle('hidden');
-
-      hamburgerSpans.forEach(span => span.classList.toggle('active', !isExpanded));
-    });
-
-    mobileMenuBackdrop.addEventListener('click', () => {
-      closeMenu();
-    });
-
-    // Cerrar menú al hacer clic en un enlace
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        // Desplazamiento suave
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          e.preventDefault();
-          const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-          }
-        }
-
-        closeMenu();
-      });
-    });
-
-    function closeMenu() {
-      mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.add('hidden');
-      mobileMenuBackdrop.classList.add('hidden');
-      hamburgerSpans.forEach(span => span.classList.remove('active'));
+    // Manejo del menú lateral
+    const sidebarMenuButton = document.getElementById('sidebar-menu-button');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    const sidebarMenuBackdrop = document.getElementById('sidebar-menu-backdrop');
+    let hamburgerSpans = null;
+    if (sidebarMenuButton) {
+        hamburgerSpans = sidebarMenuButton.querySelectorAll('.hamburger-icon span');
     }
-  } else {
-    console.warn('Elementos del menú hamburguesa no encontrados');
-  }
+
+    if (sidebarMenuButton && sidebarMenu && sidebarMenuBackdrop && hamburgerSpans && hamburgerSpans.length) {
+        sidebarMenuButton.addEventListener('click', () => {
+            const isExpanded = sidebarMenuButton.getAttribute('aria-expanded') === 'true';
+            sidebarMenuButton.setAttribute('aria-expanded', !isExpanded);
+            sidebarMenu.classList.toggle('active');
+            sidebarMenuBackdrop.classList.toggle('active');
+            hamburgerSpans.forEach(span => span.classList.toggle('active', !isExpanded));
+        });
+
+        sidebarMenuBackdrop.addEventListener('click', () => {
+            closeMenu();
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        sidebarMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    closeMenu();
+                }
+            });
+        });
+
+        // Cerrar menú con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarMenuButton.getAttribute('aria-expanded') === 'true') {
+                closeMenu();
+            }
+        });
+
+        function closeMenu() {
+            sidebarMenuButton.setAttribute('aria-expanded', 'false');
+            sidebarMenu.classList.remove('active');
+            sidebarMenuBackdrop.classList.remove('active');
+            hamburgerSpans.forEach(span => span.classList.remove('active'));
+        }
+    } else {
+        console.warn('No se encontraron uno o más elementos del menú lateral: botón, menú, backdrop o spans del ícono hamburguesa');
+    }
 
   // Manejo del formulario de contacto
   const contactForm = document.getElementById('contact-form');

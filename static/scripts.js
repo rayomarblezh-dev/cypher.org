@@ -1,42 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Manejo del menú lateral
-    const sidebarMenuButton = document.getElementById('sidebar-menu-button');
-    const sidebarMenu = document.getElementById('sidebar-menu');
-    const sidebarMenuBackdrop = document.getElementById('sidebar-menu-backdrop');
-    let hamburgerSpans = null;
-    if (sidebarMenuButton) {
-        hamburgerSpans = sidebarMenuButton.querySelectorAll('.hamburger-icon span');
-    }
-
-    if (sidebarMenuButton && sidebarMenu && sidebarMenuBackdrop && hamburgerSpans && hamburgerSpans.length) {
-        sidebarMenuButton.addEventListener('click', () => {
-            const isExpanded = sidebarMenuButton.getAttribute('aria-expanded') === 'true';
-            sidebarMenuButton.setAttribute('aria-expanded', !isExpanded);
-            sidebarMenu.classList.toggle('active');
-            sidebarMenuBackdrop.classList.toggle('active');
-            hamburgerSpans.forEach(span => span.classList.toggle('active', !isExpanded));
-        });
-
-        sidebarMenuBackdrop.addEventListener('click', () => {
-            closeMenu();
-        });
-
-        // Cerrar menú al hacer clic en un enlace
-        sidebarMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                const href = link.getAttribute('href');
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                    closeMenu();
-                }
-            });
-        });
-      }
-
   // Manejo del formulario de contacto
   const contactForm = document.getElementById('contact-form');
   const formMessage = document.getElementById('form-message');
@@ -88,4 +49,3 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     console.warn('Elementos del formulario no encontrados');
   }
-});

@@ -60,31 +60,10 @@
                         <a href="#contact" class="text-gray-600 hover:text-black px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-200">Contacto</a>
                     </div>
                 </div>
-                <div class="-mr-2 flex md:hidden">
-                    <button id="sidebar-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-black transition-all duration-200" aria-label="Abrir o cerrar el menú lateral" aria-expanded="false">
-                        <div class="hamburger-icon">
-                            <span class="block w-6 h-0.5 bg-black rounded-full transition-transform duration-300"></span>
-                            <span class="block w-6 h-0.5 bg-black rounded-full my-1.5 transition-opacity duration-300"></span>
-                            <span class="block w-6 h-0.5 bg-black rounded-full transition-transform duration-300"></span>
-                        </div>
-                    </button>
-                </div>
             </div>
         </div>
     </nav>
-
-    
-    <!-- Sidebar menu -->
-    <nav id="sidebar-menu" class="hidden fixed top-0 left-0 w-64 h-full bg-white border-r border-black z-40 transform -translate-x-full opacity-0 transition-all duration-300 ease-in-out shadow-lg">
-        <div class="pt-16 pb-3 space-y-1">
-            <a href="#about" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none border-b border-black">Sobre nosotros</a>
-            <a href="#services" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none border-b border-black">Servicios</a>
-            <a href="#applications" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none border-b border-black">Soluciones</a>
-            <a href="#contact" class="block text-black hover:bg-gray-100 hover:border-l-4 hover:border-black px-4 py-2 font-semibold transition-all duration-200 rounded-none">Contacto</a>
-        </div>
-    </nav>
-    <div id="sidebar-menu-backdrop" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30 transition-opacity duration-300"></div>
-    
+ 
     <!-- Hero Section -->
 <section class="mt-16 pt-20 pb-10 px-2 sm:px-4 md:px-8 max-w-7xl mx-auto overflow-x-hidden relative">
     <div class="flex flex-col md:flex-row items-center w-full gap-8 md:gap-0 flex-wrap">
@@ -99,7 +78,7 @@
             </p>
             <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
                 <a href="#contact" class="btn-bordered">Contáctanos</a>
-                <a href="#services" class="btn-bordered">Nuestros servicios</a>
+                <a href="#services" class="btn-bordered bg-black text-white hover:bg-white hover:text-black">Nuestros servicios</a>
             </div>
         </div>
 
@@ -379,55 +358,5 @@
         </div>
     </footer>
     <script src="/static/scripts.js"></script>
-    <script>
-    // Script para mostrar/ocultar el menú lateral móvil
-    document.addEventListener('DOMContentLoaded', function () {
-        const sidebarMenu = document.getElementById('sidebar-menu');
-        const sidebarBackdrop = document.getElementById('sidebar-menu-backdrop');
-        const menuButton = document.getElementById('sidebar-menu-button');
-
-
-        function openSidebar() {
-            sidebarMenu.classList.remove('hidden');
-            setTimeout(() => {
-                sidebarMenu.classList.remove('-translate-x-full');
-                sidebarMenu.classList.remove('opacity-0');
-                sidebarMenu.classList.add('opacity-100');
-            }, 10);
-            sidebarBackdrop.classList.remove('hidden');
-            setTimeout(() => {
-                sidebarBackdrop.classList.add('bg-opacity-50');
-            }, 10);
-            menuButton.setAttribute('aria-expanded', 'true');
-        }
-
-        function closeSidebar() {
-            sidebarMenu.classList.add('-translate-x-full');
-            sidebarMenu.classList.remove('opacity-100');
-            sidebarMenu.classList.add('opacity-0');
-            sidebarBackdrop.classList.remove('bg-opacity-50');
-            menuButton.setAttribute('aria-expanded', 'false');
-            setTimeout(() => {
-                sidebarMenu.classList.add('hidden');
-                sidebarBackdrop.classList.add('hidden');
-            }, 300); // Espera la transición
-        }
-
-        menuButton.addEventListener('click', function () {
-            if (sidebarMenu.classList.contains('hidden')) {
-                openSidebar();
-            } else {
-                closeSidebar();
-            }
-        });
-
-        sidebarBackdrop.addEventListener('click', closeSidebar);
-
-        // Opcional: cerrar el menú al hacer clic en un enlace
-        sidebarMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', closeSidebar);
-        });
-    });
-    </script>
 </body>
 </html>
